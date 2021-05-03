@@ -1,26 +1,37 @@
 package br.com.donadonandre.array
 
+import java.math.BigDecimal
+import java.math.RoundingMode
+
 fun main() {
-    val idades = intArrayOf(15, 16, 18, 19, 20, 21, 25, 30, 40, 50)
+//    val salarios = Array<BigDecimal>(5) { BigDecimal.ZERO }
+//    salarios[0] = "1500.55".toBigDecimal()
+//    ...
+//    println(salarios.contentToString())
 
-    val maiorIdade = idades.max() // Obsoleto
-    val menorIdade = idades.min() // Obsoleto
-    val mediaIdade = idades.average()
+    val salarios = bigDecimalArrayOf("1500.0", "2000.0", "5000.0", "10000.0")
+    println(salarios.contentToString())
 
-    println("Maior: $maiorIdade")
-    println("Menor: $menorIdade")
-    println("Média: $mediaIdade")
+    val aumento = "1.1".toBigDecimal()
+    //val salariosComAumento: List<BigDecimal> = salarios.map { salario -> salario * aumento }
+    val salariosComAumento:
+            Array<BigDecimal> = salarios
+            .map { salario ->
+                if (salario < "5000.0".toBigDecimal()) {
+                    salario + "500.0".toBigDecimal()
+                }
+                else {
+                    (salario * aumento).setScale(2, RoundingMode.UP)
+                }
 
-    val todosMaiores = idades.all { it >= 18 }
-    println("Todos Maiores? $todosMaiores")
+            }.toTypedArray()
 
-    val existeMaior = idades.any { it >= 18 }
-    println("Existe Maior? $existeMaior")
+    println(salariosComAumento.contentToString())
+}
 
-    val maiores = idades.filter { it >= 18 }
-    println("Maiores alunos: $maiores" )
-
-    val busca = idades.find { it >= 18 }
-    println("Busca um de 18: $busca")
+fun bigDecimalArrayOf(vararg valores: String): Array<BigDecimal> {
+    return Array<BigDecimal>(valores.size) { i ->
+        valores[i].toBigDecimal()
+    }
 }
 
