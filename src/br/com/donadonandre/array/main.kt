@@ -44,6 +44,9 @@ fun main() {
 
     val ordenandoPorAnoPublicacao = livros.sorted() // Esse método só funcionara depois que a classe Livro extender Comparable
     ordenandoPorAnoPublicacao.imprimeComMarcadores()
+
+    val ordenadoPorTitulo = livros.sortedBy { it.titulo }
+    ordenadoPorTitulo.imprimeComMarcadores()
 }
 
 fun List<Livro>.imprimeComMarcadores() {
