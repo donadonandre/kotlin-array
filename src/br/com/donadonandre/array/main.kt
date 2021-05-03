@@ -13,4 +13,12 @@ fun main() {
     }
 
     println("A maior idade é: $maiorIdade")
+
+    var menorIdade = Int.MAX_VALUE
+    idades.forEach { idade ->
+        if (idade < menorIdade) {
+            menorIdade = idade
+        }
+    }
+    println("A menor idade é: $menorIdade")
 }
