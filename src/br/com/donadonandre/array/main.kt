@@ -50,11 +50,12 @@ fun main() {
 
     // Filtrar livros
     println(" ---- FILTROS ----")
-    livros
-         //.filter { it.autor == "João Guimarães Rosa" }
-        .filter { it.autor.startsWith( "João Guimarães Rosa") }
+    val titulos = livros
+        .filter { it.autor.startsWith("João Guimarães Rosa") }
         .sortedBy { it.anoPublicacao }
-        //.imprimeComMarcadores()
+        .map { it.titulo }
+
+    println(titulos)
 }
 
 fun List<Livro>.imprimeComMarcadores() {
