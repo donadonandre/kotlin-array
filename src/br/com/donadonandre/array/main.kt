@@ -1,23 +1,30 @@
 package br.com.donadonandre.array
 
 fun main() {
-    var salarios: DoubleArray = doubleArrayOf(1550.5, 2300.0, 5000.0, 8000.0, 10000.0)
-    // Double tem problema de arredondamento
-
-    val aumento = 1.1
-//    var indice = 0
-//    for (salario in salarios) {
-//        salarios[indice] = salario * aumento
-//        indice++
-//    }
-
-//    for (indice in salarios.indices) {
-//        salarios[indice] = salarios[indice] * aumento
-//    }
-
-    salarios.forEachIndexed{indice, salario ->
-        salarios[indice] = salario * aumento
+    val serie: IntRange = 1.rangeTo(10)
+    for(s in serie) {
+        print("$s ")
     }
-    println(salarios.contentToString())
+
+    println()
+
+    val numerosPares = 0..100 step 2 // 2.until(100)
+    for(numeroPar in numerosPares){
+        print("$numeroPar ")
+    }
+
+    println()
+
+    val numerosParesReverso = 100 downTo 0 step 2
+    numerosParesReverso.forEach { print("$it ") }
+
+    val intervalo = 1500.0..5000.0 // Vale para letras (alfabeto) também
+    val salario = 4000.0
+    if (salario in intervalo) {
+        println("O salário está dentro do intervalo")
+    }
+    else {
+        println("O salário NÃO está dentro do intervalo")
+    }
 }
 
