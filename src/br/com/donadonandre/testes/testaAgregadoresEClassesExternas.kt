@@ -28,11 +28,19 @@ fun testaAgregadoresEClassesExternas() {
     println("Gasto Total: $gastoTotal")
 
     // Media dos 3 maiores salários
-    val salariosOrdenados = salariosComAumento.sorted()
-    //val tresUltimosSalarios: List<BigDecimal> = salariosOrdenados.takeLast(3)
-    val tresUltimosSalarios: Array<BigDecimal> = salariosOrdenados.takeLast(3).toTypedArray()
-    val media = tresUltimosSalarios.media()
+    val media = salariosComAumento
+        .sorted()
+        .takeLast( 3)
+        .toTypedArray()
+        .media()
     println("A média dos 3 maiores salários são: $media")
+
+    val mediaMenoresSalarios = salariosComAumento
+        .sorted()
+        .take(3)
+        .toTypedArray()
+        .media()
+    println("A média dos 3 menores salários são: $mediaMenoresSalarios")
 }
 
 private fun calculaAumentoRelativo(
