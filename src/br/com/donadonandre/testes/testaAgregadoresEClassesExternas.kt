@@ -1,5 +1,6 @@
 package br.com.donadonandre.testes
 
+import br.com.donadonandre.funcs.*
 import java.math.BigDecimal
 import java.math.RoundingMode
 
@@ -25,6 +26,13 @@ fun testaAgregadoresEClassesExternas() {
         acumulador + (salario * meses).setScale(2, RoundingMode.UP)
     }
     println("Gasto Total: $gastoTotal")
+
+    // Media dos 3 maiores salários
+    val salariosOrdenados = salariosComAumento.sorted()
+    //val tresUltimosSalarios: List<BigDecimal> = salariosOrdenados.takeLast(3)
+    val tresUltimosSalarios: Array<BigDecimal> = salariosOrdenados.takeLast(3).toTypedArray()
+    val media = tresUltimosSalarios.media()
+    println("A média dos 3 maiores salários são: $media")
 }
 
 private fun calculaAumentoRelativo(
@@ -36,15 +44,6 @@ private fun calculaAumentoRelativo(
     (salario * aumento).setScale(2, RoundingMode.UP)
 }
 
-private fun bigDecimalArrayOf(vararg valores: String): Array<BigDecimal> {
-    return Array<BigDecimal>(valores.size) { i ->
-        valores[i].toBigDecimal()
-    }
-}
 
-fun Array<BigDecimal>.somatoria(): BigDecimal {
-    return this.reduce { acumulador, valor ->
-        acumulador + valor
-    }
-}
+
 
