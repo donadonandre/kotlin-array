@@ -41,9 +41,12 @@ fun main() {
     livros.remove(livro2)
 
     livros.imprimeComMarcadores()
+
+    val ordenandoPorAnoPublicacao = livros.sorted() // Esse método só funcionara depois que a classe Livro extender Comparable
+    ordenandoPorAnoPublicacao.imprimeComMarcadores()
 }
 
-fun MutableList<Livro>.imprimeComMarcadores() {
+fun List<Livro>.imprimeComMarcadores() {
     val textoFormatado = this.joinToString(separator = "\n") {
         " - ${it.titulo} de ${it.autor}"
     }
