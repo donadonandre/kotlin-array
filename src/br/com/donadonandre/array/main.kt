@@ -1,24 +1,15 @@
 package br.com.donadonandre.array
 
 fun main() {
-    val idades: IntArray = intArrayOf(25, 19, 33, 20, 55)
-    // Nesse caso eu não preciso especificar o tamanho do IntArray na declaração
+    var salarios: DoubleArray = doubleArrayOf(1550.5, 2300.0, 5000.0, 8000.0, 10000.0)
+    // Double tem problema de arredondamento
 
-    var maiorIdade = 0
-
-    for (idade in idades) {
-        if (idade > maiorIdade) {
-            maiorIdade = idade
-        }
+    val aumento = 1.1
+    var indice = 0
+    for (salario in salarios) {
+        salarios[indice] = salario * aumento
+        indice++
     }
-
-    println("A maior idade é: $maiorIdade")
-
-    var menorIdade = Int.MAX_VALUE
-    idades.forEach { idade ->
-        if (idade < menorIdade) {
-            menorIdade = idade
-        }
-    }
-    println("A menor idade é: $menorIdade")
+    println(salarios.contentToString())
 }
+
