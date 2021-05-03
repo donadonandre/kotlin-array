@@ -5,10 +5,14 @@ fun main() {
     // Double tem problema de arredondamento
 
     val aumento = 1.1
-    var indice = 0
-    for (salario in salarios) {
-        salarios[indice] = salario * aumento
-        indice++
+//    var indice = 0
+//    for (salario in salarios) {
+//        salarios[indice] = salario * aumento
+//        indice++
+//    }
+
+    for (indice in salarios.indices) {
+        salarios[indice] = salarios[indice] * aumento
     }
     println(salarios.contentToString())
 }
