@@ -13,6 +13,12 @@ fun main() {
     val pedidosMapeados = pedidos.associateBy { pedido -> pedido.numero }
     println(pedidosMapeados)
     println(pedidosMapeados[1])
+
+    val pedidosFreteGratis = pedidos.associateWith { pedido ->
+        pedido.valor > 50.0
+    }
+    println(pedidosFreteGratis)
+    println(pedidosFreteGratis[Pedido(numero=2, valor=30.0)])
 }
 
 data class Pedido(val numero: Int, val valor: Double)
