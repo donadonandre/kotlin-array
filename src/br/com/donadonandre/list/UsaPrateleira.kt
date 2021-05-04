@@ -7,6 +7,7 @@ fun main() {
         Pair(2, 34.0),
         3 to 50.0,
         4 to 100.0,
+        5 to 125.0,
         6 to 45.0
     )
 
@@ -44,5 +45,25 @@ fun main() {
 
     println(pedidosAcima)
     println(pedidosPares)
+
+    // Novas funções
+    println(pedidos + Pair(7, 150.0))
+    println(pedidos + mapOf(7 to 50.0, 8 to 200.0))
+    println(pedidos)
+
+    println(pedidos - 6)
+    println(pedidos)
+
+    pedidos.putAll(setOf(7 to 50.0, 8 to 200.0)) // Pode ser um listOf de Pair
+    pedidos.putAll(setOf(8 to 30.0)) // Substitui o 8
+    pedidos += Pair(9, 210.0)
+    println(pedidos)
+
+    pedidos.keys.remove(1)
+    pedidos.values.remove(30.0)
+    pedidos -= 6
+    println(pedidos)
+
+
 }
 
