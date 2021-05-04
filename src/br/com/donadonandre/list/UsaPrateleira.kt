@@ -10,9 +10,7 @@ fun main() {
     )
     println(pedidos.toString())
 
-    val pedidosMapeados = pedidos.associate { pedido: Pedido ->
-        Pair(pedido.numero, pedido)
-    }
+    val pedidosMapeados = pedidos.associateBy { pedido -> pedido.numero }
     println(pedidosMapeados)
     println(pedidosMapeados[1])
 }
