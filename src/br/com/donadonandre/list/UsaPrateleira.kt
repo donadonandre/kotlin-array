@@ -1,38 +1,18 @@
 package br.com.donadonandre.list
 
 fun main() {
-    val assistiramCursoAndroid: Set<String> = setOf("André", "Alex", "Jederson")
-    val assistiramCursoKotlin: Set<String> = setOf("André", "Alex", "Jederson", "João", "Maria")
+    val pedidos = mapOf<Int, Double>(Pair(1, 20.0), Pair(2, 34.0), 3 to 50.0)
+    // 3 to 50.0 tem problemas de performance
+    println(pedidos)
 
-    val assistiramAmbos: MutableSet<String> = mutableSetOf()
-    assistiramAmbos.addAll(assistiramCursoAndroid)
-    assistiramAmbos.addAll(assistiramCursoKotlin)
-    assistiramAmbos.add("Ana")
-    assistiramAmbos.add("Ana")
+    val pedido = pedidos[0]
+    pedido?.let {
+        println("pedido $it")
+    }
 
-    println(assistiramAmbos)
-    println(assistiramCursoAndroid + assistiramCursoKotlin)
-    println(assistiramCursoAndroid union assistiramCursoKotlin)
-
-    println(assistiramCursoAndroid - assistiramCursoKotlin)
-    println(assistiramCursoAndroid subtract assistiramCursoKotlin)
-
-    println(assistiramCursoAndroid intersect assistiramCursoKotlin)
-
-    val assistiramList = assistiramAmbos.toMutableList()
-    assistiramList.add("Alex")
-    println(assistiramList)
-    println(assistiramList.toSet())
-    /*
-//    val assistiramAmbos = mutableListOf<String>()
-    val assistiramAmbos = assistiramCursoAndroid + assistiramCursoKotlin
-
-    //assistiramAmbos.addAll(assistiramCursoKotlin)
-    //assistiramAmbos.addAll(assistiramCursoAndroid)
-
-    println(assistiramAmbos.distinct())
-    // [André, Alex, Jederson, João, Maria]
-//    println(assistiramAmbos[0]) // Esse código não funciona para set
-    */
-
+    for (pedido in pedidos) { // pedido: Map.Entry
+        println("Número do pedido: ${pedido.key}")
+        println("Valor do pedido: ${pedido.value}")
+    }
 }
+
