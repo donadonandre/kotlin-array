@@ -1,4 +1,4 @@
-package br.com.donadonandre.testes
+package br.com.donadonandre.testsArrayAndList
 
 fun testaMaiorEMenorIdade() {
     val idades: IntArray = intArrayOf(25, 19, 33, 20, 55)

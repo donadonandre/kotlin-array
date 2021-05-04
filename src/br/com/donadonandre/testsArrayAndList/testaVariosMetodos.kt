@@ -1,4 +1,4 @@
-package br.com.donadonandre.testes
+package br.com.donadonandre.testsArrayAndList
 
 fun testaVariosMetodos() {
     val idades = intArrayOf(15, 16, 18, 19, 20, 21, 25, 30, 40, 50)

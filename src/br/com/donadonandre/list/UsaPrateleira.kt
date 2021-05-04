@@ -1,20 +1,28 @@
 package br.com.donadonandre.list
 
-import br.com.donadonandre.array.listaLivroComNulos
-import br.com.donadonandre.testes.imprimeComMarcadores
-
 fun main() {
-    val prateleira = Prateleira(
-        genero = "Literatura",
-        livros = listaLivroComNulos
-    )
+    val banco = BancoDeNomes()
+    banco.salva("André")
+    println(banco.nomes)
+    println(BancoDeNomes().nomes)
+}
 
-    val porAutor = prateleira.organizarPorAutor()
-    val porAnoPublicacao = prateleira.organizarPorAnoPublicacao()
+class BancoDeNomes {
+    val nomes: Collection<String> get() = Companion.dados
 
-    porAutor.imprimeComMarcadores()
-    porAnoPublicacao.imprimeComMarcadores()
+    fun salva(nome: String) {
+        Companion.dados.add(nome)
+    }
 
-    /* Agora estamos trabalhando com List então ele está criando objetos separados, diferentes
-     */
+    // Lembre-te: Companion é a variável global
+    companion object {
+        private val dados = mutableListOf<String>()
+    }
+}
+
+fun testaColecao() {
+    val nomes: Collection<String> = mutableListOf("André", "Luiz", "Donadon")
+    for (nome in nomes) {
+        println("Nome da coleção $nome")
+    }
 }

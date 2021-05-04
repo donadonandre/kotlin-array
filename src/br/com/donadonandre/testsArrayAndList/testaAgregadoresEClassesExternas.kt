@@ -1,4 +1,4 @@
-package br.com.donadonandre.testes
+package br.com.donadonandre.testsArrayAndList
 
 import br.com.donadonandre.funcs.*
 import java.math.BigDecimal

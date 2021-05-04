@@ -1,4 +1,4 @@
-package br.com.donadonandre.testes
+package br.com.donadonandre.testsArrayAndList
 
 fun testaIndices() {
     var salarios: DoubleArray = doubleArrayOf(1550.5, 2300.0, 5000.0, 8000.0, 10000.0)
