@@ -2,7 +2,7 @@ package br.com.donadonandre.list
 
 fun main() {
     val assistiramCursoAndroid: Set<String> = setOf("André", "Alex", "Jederson")
-    val assistiramCursoKotlin: List<String> = listOf("André", "Alex", "Jederson", "João", "Maria")
+    val assistiramCursoKotlin: Set<String> = setOf("André", "Alex", "Jederson", "João", "Maria")
 
     val assistiramAmbos: MutableSet<String> = mutableSetOf()
     assistiramAmbos.addAll(assistiramCursoAndroid)
@@ -11,8 +11,18 @@ fun main() {
     assistiramAmbos.add("Ana")
 
     println(assistiramAmbos)
+    println(assistiramCursoAndroid + assistiramCursoKotlin)
+    println(assistiramCursoAndroid union assistiramCursoKotlin)
 
+    println(assistiramCursoAndroid - assistiramCursoKotlin)
+    println(assistiramCursoAndroid subtract assistiramCursoKotlin)
 
+    println(assistiramCursoAndroid intersect assistiramCursoKotlin)
+
+    val assistiramList = assistiramAmbos.toMutableList()
+    assistiramList.add("Alex")
+    println(assistiramList)
+    println(assistiramList.toSet())
     /*
 //    val assistiramAmbos = mutableListOf<String>()
     val assistiramAmbos = assistiramCursoAndroid + assistiramCursoKotlin
