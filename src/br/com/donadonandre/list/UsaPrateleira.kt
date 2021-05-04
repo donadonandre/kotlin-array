@@ -1,41 +1,48 @@
 package br.com.donadonandre.list
 
 fun main() {
+    // Funções mais específicas do Map
     val pedidos = mutableMapOf<Int, Double>(
         Pair(1, 20.0),
         Pair(2, 34.0),
-        3 to 50.0
+        3 to 50.0,
+        4 to 100.0,
+        6 to 45.0
     )
-    // 3 to 50.0 tem problemas de performance
-    println(pedidos)
 
-    val pedido = pedidos[0]
-    pedido?.let {
-        println("pedido $it")
+//    val valorPedido = pedidos[0]
+//    val valorPedido = pedidos.getValue(0) // Aqui ele retorna uma Exception
+//    println("Valor pedido: $valorPedido")
+
+    println(pedidos.getOrElse(1) {
+        "Não tem o pedido"
+    })
+
+    println(pedidos.getOrDefault(1, -1.0))
+    println(pedidos.getOrDefault(0, -1.0))
+
+    println(pedidos.keys)
+    for (numeroDePedidos in pedidos.keys) {
+        println(numeroDePedidos)
     }
 
-    for (p in pedidos) { // pedido: Map.Entry
-        println("Número do pedido: ${p.key}")
-        println("Valor do pedido: ${p.value}")
+    for (valorDePedidos in pedidos.values) {
+        println(valorDePedidos)
     }
 
-    // Adicionando...
-    pedidos[4] = 70.0
-    println(pedidos)
+    pedidos.filter { (numero, valor) ->
+        true
+    }
 
-    pedidos.put(5, 80.0) // Convencional é a versão de cima
-    println(pedidos)
+    val pedidosFiltrados = pedidos.filter { (numero, valor) ->
+        numero % 2 == 0 && valor > 50.0
+    }
+    println("Pedidos filtrados $pedidosFiltrados")
 
-    // Atualizando...
-    pedidos[1] = 100.0
-    println(pedidos)
+    val pedidosAcima = pedidos.filterValues { valor -> valor > 70.0 }
+    val pedidosPares = pedidos.filterKeys { numero -> numero % 2 == 0 }
 
-    // Adicionando caso não exista (não atualiza)
-    pedidos.putIfAbsent(2, 600.0)
-    println(pedidos)
-
-    // Removendo
-    pedidos.remove(3) // Pode colocar o value junto para garantir melhor
-    println(pedidos)
+    println(pedidosAcima)
+    println(pedidosPares)
 }
 
