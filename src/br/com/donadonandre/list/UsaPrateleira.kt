@@ -3,12 +3,11 @@ package br.com.donadonandre.list
 fun main() {
     val banco = BancoDeNomes()
 //    var nomeSalvos = banco.nomes
-    // Esse código burla o que estamos trabalhando pois nomes é mutável.
-    var nomeSalvos: MutableCollection<String> = banco.nomes as MutableCollection<String>
+    // 1 - Esse código burla o que estamos trabalhando pois nomes é mutável.
+    var nomeSalvos: Collection<String> = banco.nomes as Collection<String>
 
-    // Com esse comando nós estamos burlando a regra da banco.nomes que deveria ser privada
-    // Não é suficiente
-    nomeSalvos.add("Teste")
+    // 2 - Com esse comando nós estamos burlando a regra da banco.nomes que deveria ser privada
+    //nomeSalvos.add("Teste")
 
 
     banco.salva("André")
@@ -19,7 +18,8 @@ fun main() {
 }
 
 class BancoDeNomes {
-    val nomes: Collection<String> get() = Companion.dados
+    // 3 - colando o toList, não permite mais que o Casting seja feito
+    val nomes: Collection<String> get() = Companion.dados.toList()
 
     fun salva(nome: String) {
         Companion.dados.add(nome)
