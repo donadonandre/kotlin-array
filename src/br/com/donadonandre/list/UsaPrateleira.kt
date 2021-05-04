@@ -8,6 +8,6 @@ fun main() {
     assistiramAmbos.addAll(assistiramCursoKotlin)
     assistiramAmbos.addAll(assistiramCursoAndroid)
 
-    println(assistiramAmbos)
-    // [André, Alex, Jederson, João, Maria, André, Alex, Jederson]
+    println(assistiramAmbos.distinct())
+    // [André, Alex, Jederson, João, Maria]
 }
